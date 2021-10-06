@@ -14,7 +14,7 @@ export default function News() {
     getNews().then((res)=>
       {
         if (res.success) {
-        toast.success("News Found")
+        toast.success("News Updated")
         setData(res.data)
         }
         else{
