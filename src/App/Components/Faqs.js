@@ -7,13 +7,13 @@ import { Accordion } from 'react-bootstrap';
 
 
 export default function Faqs() {
-
-  const [data, setData] = useState(null)
+  const [data, setData] = useState(null);
+  const [showfaqs, setshowFaqs] = useState(true);
 
   const getAllFaqs = () => {
     getFaqs().then((res) => {
       if (res.success) {
-        toast.success("FAQ's Found")
+        toast.success("FAQ's Found");
         setData(res.data);
       } else {
         toast.error("FAQ's Missing");
@@ -21,10 +21,11 @@ export default function Faqs() {
     });
   };
 
-  useEffect(() => {
-    getAllFaqs()
+  console.log(showfaqs)
 
-  }, [])
+  useEffect(() => {
+    getAllFaqs();
+  }, []);
 
   return (
     <div className="card border-0 bg-white rounded shadow-sm">
@@ -42,20 +43,23 @@ export default function Faqs() {
                 type="checkbox"
                 role="switch"
                 id="flexSwitchCheckDefault"
+                checked={showfaqs}
+                onChange={() => setshowFaqs(!showfaqs)}
               />
             </div>
           </div>
         </div>
-        <Accordion flush>
-          {data && data.map((item, index) => (
-            <Accordion.Item eventKey={index} key={index}>
-              <Accordion.Header>{item.question}</Accordion.Header>
-              <Accordion.Body>
-                {item.answer}
-              </Accordion.Body>
-            </Accordion.Item>
-          ))}
-        </Accordion>
+        {showfaqs && (
+          <Accordion flush>
+            {data &&
+              data.map((item, index) => (
+                <Accordion.Item eventKey={index} key={index}>
+                  <Accordion.Header>{item.question}</Accordion.Header>
+                  <Accordion.Body>{item.answer}</Accordion.Body>
+                </Accordion.Item>
+              ))}
+          </Accordion>
+        )}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import LineChart from './Graphs/LineChart';
 import BarChart from './Graphs/BarChart';
@@ -7,6 +7,10 @@ import News from './News';
 import Faqs from './Faqs';
 
 const Main = () => {
+
+
+
+
     return (
       <>
         <div class="container mt-5 mb-5">
@@ -43,7 +47,8 @@ const Main = () => {
               <News />
             </div>
             <div className="col-lg-6 mb-5">
-              <Faqs />
+                <Faqs/>
+              
             </div>
           </div>
         </div>

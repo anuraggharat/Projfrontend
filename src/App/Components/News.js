@@ -7,6 +7,8 @@ export default function News() {
 
 
   const [data, setData] = useState(null);
+  const [shownews, setShownews] = useState(true);
+
 
   const getAllNews=()=>{
     getNews().then((res)=>
@@ -43,21 +45,28 @@ export default function News() {
                   type="checkbox"
                   role="switch"
                   id="flexSwitchCheckDefault"
+                  checked={shownews}
+                  onChange={()=>setShownews(!shownews)}
                 />
               </div>
             </div>
           </div>
-          {data && data.map((item, index) => (
-            <div className="row mt-4" key={index}>
-              <Link
-                className="mb-0"
-                to={{ pathname: `/news/${item.title}`, item: item }}
-              >
-                {item.title}
-              </Link>
-              <p className="flex-end text-muted my-0">Wed 10 Sept</p>
+          {shownews && (
+            <div>
+              {data &&
+                data.map((item, index) => (
+                  <div className="row mt-4" key={index}>
+                    <Link
+                      className="mb-0"
+                      to={{ pathname: `/news/${item.title}`, item: item }}
+                    >
+                      {item.title}
+                    </Link>
+                    <p className="flex-end text-muted my-0">Wed 10 Sept</p>
+                  </div>
+                ))}
             </div>
-          ))}
+          )}
         </div>
       </div>
     );
