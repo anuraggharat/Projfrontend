@@ -1,4 +1,20 @@
+:root{
+  --primary:#a29bfe;
+  --grey:#eef5f8;
+}
+
+.bg-purple{
+  background: var(--primary) !important;
+}
+.bg-grey{
+  background-color: var(--grey) !important;
+}
+
+
+
+
 /* The side navigation menu */
+
 .sidenav {
     height: 100%;
     width: 0; 

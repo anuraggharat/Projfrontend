@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Sidebar(props) {
     return (
-      <div id="mySidenav" className="sidenav ">
+      <div id="mySidenav" className="sidenav bg-light shadow">
         <nav className="navbar d-flex align-items-center navbar-expand-lg navbar-light bg-light m-0">
           <div className="navbar-nav bg-light mx-auto my-auto">
             <button className="btn btn-outline-primary">
@@ -12,11 +12,11 @@ export default function Sidebar(props) {
           </div>
         </nav>
         <ul className="list-group p-0 list-group-flush mt-0">
-          <li className="list-group-item border-0">Options</li>
-          <li className="list-group-item  border-0">A second item</li>
-          <li className="list-group-item  border-0">A third item</li>
-          <li className="list-group-item  border-0">A fourth item</li>
-          <li className="list-group-item  border-0">
+          <li className="list-group-item bg-light border-0">Options</li>
+          <li className="list-group-item  bg-light border-0">A second item</li>
+          <li className="list-group-item bg-light  border-0">A third item</li>
+          <li className="list-group-item bg-light border-0">A fourth item</li>
+          <li className="list-group-item bg-light border-0">
             <select className="form-select" aria-label="Default select example">
               <option defaultValue>Dashboard View</option>
               <option className="1">One</option>

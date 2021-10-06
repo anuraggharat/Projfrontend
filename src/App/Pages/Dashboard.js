@@ -30,12 +30,12 @@ export default function Dashboard() {
       <>
         <Sidebar />
 
-        <div id="main" className="bg-primary min-vh-100 p-0">
+        <div id="main" className="bg-white min-vh-100 p-0">
           <Navbar sidebarToggler={toggleSidebar} />
           <div className="container min-vh-100">
 
           </div>
-          <footer className="w-100 bg-white text-center py-2">
+          <footer className="w-100 bg-dark text-white text-center py-2">
               &copy;2021 Team 7
           </footer>
         </div>
