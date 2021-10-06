@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import Main from '../Components/Main'
 import Navbar from '../Components/Navbar'
 import Sidebar from '../Components/Sidebar'
 
@@ -33,7 +34,7 @@ export default function Dashboard() {
         <div id="main" className="bg-white min-vh-100 p-0">
           <Navbar sidebarToggler={toggleSidebar} />
           <div className="container min-vh-100">
-
+            <Main />
           </div>
           <footer className="w-100 bg-dark text-white text-center py-2">
               &copy;2021 Team 7
