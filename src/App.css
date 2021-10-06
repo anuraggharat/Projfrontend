@@ -1,6 +1,7 @@
 :root{
   --primary:#a29bfe;
   --grey:#eef5f8;
+  --background:#f4f7fc;
 }
 
 .bg-purple{
@@ -9,8 +10,13 @@
 .bg-grey{
   background-color: var(--grey) !important;
 }
+.bg-background{
+  background-color: var(--background) !important;
 
-
+}
+a{
+    text-decoration: none !important;
+}
 
 
 /* The side navigation menu */
@@ -24,6 +30,8 @@
     left: 0;
     overflow-x: hidden; 
     transition: 0.5s; 
+
+
 }
 
 /* The navigation menu links */
@@ -34,6 +42,7 @@
   display: block;
   transition: 0.3s;
 }
+
 
 
 

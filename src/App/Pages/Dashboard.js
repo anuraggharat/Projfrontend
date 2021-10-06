@@ -31,7 +31,7 @@ export default function Dashboard() {
       <>
         <Sidebar />
 
-        <div id="main" className="bg-white min-vh-100 p-0">
+        <div id="main" className="bg-background min-vh-100 p-0">
           <Navbar sidebarToggler={toggleSidebar} />
           <div className="container min-vh-100">
             <Main />

@@ -2,13 +2,13 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
 const data = {
-labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
   datasets: [
     {
-      label: 'Sales',
+      label: "Sales",
       data: [33, 53, 85, 41, 44, 65],
-      backgroundColor: "rgba(75,192,192,0.2)",
-      borderColor: "rgba(75,192,192,1)",
+      backgroundColor: "#a29bfe",
+      borderColor: "#a29bfe",
       borderWidth: 1,
     },
   ],
