@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function Navbar(props) {
-    console.log(props)
     return (
       <nav className="navbar d-flex justify-content-between navbar-expand-lg navbar-light bg-light m-0 px-3 shadow-sm">
         <button

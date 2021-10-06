@@ -1,7 +1,32 @@
-import React from 'react'
+import React, { useState ,useEffect} from 'react'
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { getNews } from '../Utils/getReq';
 
 export default function News() {
+
+
+  const [data, setData] = useState(null);
+
+  const getAllNews=()=>{
+    getNews().then((res)=>
+      {
+        if (res.success) {
+        toast.success("News Found")
+        setData(res.data)
+        }
+        else{
+          toast.error("No News Found")
+        }
+      }
+    )
+  }
+
+  useEffect(() => {
+    getAllNews()
+    
+  }, [])
+
     return (
       <div className="card border-0 bg-white rounded shadow-sm">
         <div className="card-body px-3">
@@ -22,34 +47,17 @@ export default function News() {
               </div>
             </div>
           </div>
-          <div className="row mt-4">
-            <Link className="mb-0" to="/">
-              Lorem Ipsum is simply dummy text of the printing and types
-              industry. is simply dummy text of the printing and types industry
-            </Link>
-            <p className="flex-end text-muted my-0">Wed 10 Sept</p>
-          </div>
-          <div className="row mt-4">
-            <Link className="mb-0" to="/">
-              Lorem Ipsum is simply dummy text of the printing and types
-              industry. is simply dummy text of the printing and types industry
-            </Link>
-            <p className="flex-end text-muted my-0">Wed 10 Sept</p>
-          </div>
-          <div className="row mt-4">
-            <Link className="mb-0" to="/">
-              Lorem Ipsum is simply dummy text of the printing and types
-              industry. is simply dummy text of the printing and types industry
-            </Link>
-            <p className="flex-end text-muted my-0">Wed 10 Sept</p>
-          </div>
-          <div className="row mt-4">
-            <Link className="mb-0" to="/">
-              Lorem Ipsum is simply dummy text of the printing and types
-              industry. is simply dummy text of the printing and types industry
-            </Link>
-            <p className="flex-end text-muted my-0">Wed 10 Sept</p>
-          </div>
+          {data && data.map((item, index) => (
+            <div className="row mt-4" key={index}>
+              <Link
+                className="mb-0"
+                to={{ pathname: `/news/${item.title}`, item: item }}
+              >
+                {item.title}
+              </Link>
+              <p className="flex-end text-muted my-0">Wed 10 Sept</p>
+            </div>
+          ))}
         </div>
       </div>
     );
