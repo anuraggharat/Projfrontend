@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import LineChart from './Graphs/LineChart';
 import BarChart from './Graphs/BarChart';
-import CombinedChart from './Graphs/CombinedChart';
+// import CombinedChart from './Graphs/CombinedChart';
 import News from './News';
 import Faqs from './Faqs';
 
