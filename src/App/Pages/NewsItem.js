@@ -49,9 +49,9 @@ if (!props.location.item) {
             <p className="lead">-{item.publisher}</p>
           </div>
           <div className="text-center">
-            <Link to={item.link} className="bg-purple btn text-white">
+            <a href={item.link} className="bg-purple btn text-white">
               Read More
-            </Link>
+            </a>
           </div>
         </div>
       </div>
