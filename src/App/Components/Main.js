@@ -46,6 +46,11 @@ const Main = (props) => {
 
     return (
       <div className="h-100">
+        <div className="px-5 d-flex d-flex justify-content-end">
+          <button className="btn btn-success" disabled>
+            Save <i class="bi bi-check-circle"></i>
+          </button>
+        </div>
         <div className="min-vh-100 content-container">
           <GridContextProvider onChange={onChange}>
             <GridDropZone
@@ -67,10 +72,10 @@ const Main = (props) => {
         <div class="container mt-5 mb-5">
           <div class="row">
             <div className="col-lg-6 mb-5 col-sm-12">
-              <News />
+              {props.shownews && <News />}
             </div>
             <div className="col-lg-6 mb-5 col-sm-12">
-              <Faqs />
+              {props.showfaqs && <Faqs />}
             </div>
           </div>
         </div>

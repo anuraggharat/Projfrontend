@@ -3,16 +3,18 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getNews } from '../Utils/getReq';
 import moment from "moment";
+import Loader from './Loader';
 
 
 export default function News() {
 
 
   const [data, setData] = useState(null);
-  const [shownews, setShownews] = useState(true);
+  const [loading,setLoading] = useState(false)
 
 
   const getAllNews=()=>{
+    setLoading(true)
     getNews().then((res)=>
       {
         if (res.success) {
@@ -22,7 +24,9 @@ export default function News() {
         else{
           toast.error("No News Found")
         }
+      setLoading(false);
       }
+
     )
   }
 
@@ -40,37 +44,25 @@ export default function News() {
                 <i className="bi bi-newspaper"></i>News
               </h5>
             </div>
-            <div>
-              <div className="form-check form-switch">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  role="switch"
-                  id="flexSwitchCheckDefault"
-                  checked={shownews}
-                  onChange={() => setShownews(!shownews)}
-                />
-              </div>
-            </div>
+            <div></div>
           </div>
-          {shownews && (
-            <div>
-              {data &&
-                data.map((item, index) => (
-                  <div className="row mt-4" key={index}>
-                    <Link
-                      className="mb-0"
-                      to={{ pathname: '/user/news', item: item }}
-                    >
-                      {item.title}
-                    </Link>
-                    <p className="flex-end text-muted my-0">
-                      {moment(item.date).fromNow()}
-                    </p>
-                  </div>
-                ))}
-            </div>
-          )}
+          <div>
+            {data &&
+              data.map((item, index) => (
+                <div className="row mt-4" key={index}>
+                  <Link
+                    className="mb-0"
+                    to={{ pathname: "/user/news", item: item }}
+                  >
+                    {item.title}
+                  </Link>
+                  <p className="flex-end text-muted my-0">
+                    {moment(item.date).fromNow()}
+                  </p>
+                </div>
+              ))}
+            {loading && <Loader />}
+          </div>
         </div>
       </div>
     );

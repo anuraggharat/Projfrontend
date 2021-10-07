@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 import { getFaqs } from '../Utils/getReq';
 import { toast } from "react-toastify";
 import { Accordion } from 'react-bootstrap';
+import Loader from './Loader';
 
 
 
 export default function Faqs() {
   const [data, setData] = useState(null);
-  const [showfaqs, setshowFaqs] = useState(true);
+  const [loading, setLoading] = useState(false);
+
 
   const getAllFaqs = () => {
+    setLoading(true)
     getFaqs().then((res) => {
       if (res.success) {
 
@@ -18,10 +21,10 @@ export default function Faqs() {
       } else {
         toast.error("FAQ's Missing");
       }
+      setLoading(false)
     });
   };
 
-  console.log(showfaqs)
 
   useEffect(() => {
     getAllFaqs();
@@ -36,30 +39,18 @@ export default function Faqs() {
               <i class="bi bi-question-lg"></i>FAQ's
             </h5>
           </div>
-          <div>
-            <div className="form-check form-switch">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                role="switch"
-                id="flexSwitchCheckDefault"
-                checked={showfaqs}
-                onChange={() => setshowFaqs(!showfaqs)}
-              />
-            </div>
-          </div>
+          <div></div>
         </div>
-        {showfaqs && (
-          <Accordion flush>
-            {data &&
-              data.map((item, index) => (
-                <Accordion.Item eventKey={index} key={index}>
-                  <Accordion.Header>{item.question}</Accordion.Header>
-                  <Accordion.Body>{item.answer}</Accordion.Body>
-                </Accordion.Item>
-              ))}
-          </Accordion>
-        )}
+        <Accordion flush>
+          {data &&
+            data.map((item, index) => (
+              <Accordion.Item eventKey={index} key={index}>
+                <Accordion.Header>{item.question}</Accordion.Header>
+                <Accordion.Body>{item.answer}</Accordion.Body>
+              </Accordion.Item>
+            ))}
+        </Accordion>
+        {loading && <Loader />}
       </div>
     </div>
   );
