@@ -34,4 +34,6 @@ export default function Sidebar({ sidebarToggler,logoutUser,user }) {
       </ul>
     </div>
   );
+
 }
+
