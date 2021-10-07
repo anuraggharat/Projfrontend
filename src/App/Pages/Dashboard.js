@@ -11,6 +11,7 @@ import { toast } from 'react-toastify'
 function Dashboard({ logoutUser, user, isLoggedIn }) {
   
   const [sidebar, setSidebar] = useState(false);
+  const profile = [0, 1, 2, 3];
 
 
   //function to toggle sidebar
@@ -50,12 +51,16 @@ function Dashboard({ logoutUser, user, isLoggedIn }) {
   
   return (
     <>
-      <Sidebar sidebarToggler={toggleSidebar} logoutUser={logout} user={user} />
+      <Sidebar
+        sidebarToggler={toggleSidebar}
+        user={user}
+        logoutUser={logoutUser}
+      />
 
       <div id="main" className="bg-background min-vh-100 p-0">
         <Navbar sidebarToggler={toggleSidebar} />
         <div className="container min-vh-100">
-          <Main />
+          <Main profile={profile} />
         </div>
         <footer className="w-100 bg-dark text-white text-center py-2">
           &copy;2021 Team 7

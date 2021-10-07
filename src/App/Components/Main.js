@@ -45,27 +45,35 @@ const Main = (props) => {
     }
 
     return (
-      <>
-      <GridContextProvider onChange={onChange}>
-      <GridDropZone
-        id="items"
-        boxesPerRow={val==true? 2:1}
-        rowHeight={400}
-        style={{ height: "400px",margin:"20px" }}
-      >
-        {items.map(item => (
-          <GridItem key={item} className="my-2" >
-            
-            <div className="card border-0 bg-white rounded shadow-sm m-3" >
-                <div className="card-body">
-              {chartArr[item]}
-              </div>
-              </div>
-            
-          </GridItem>
-        ))}
-      </GridDropZone>
-    </GridContextProvider>
+      <div className="h-100">
+        <div className="min-vh-100 content-container">
+          <GridContextProvider onChange={onChange}>
+            <GridDropZone
+              id="items"
+              boxesPerRow={val == true ? 2 : 1}
+              rowHeight={300}
+              style={{ height: "400px", margin: "20px" }}
+            >
+              {items.map((item) => (
+                <GridItem key={item} className="my-2">
+                  <div className="card border-0 bg-white rounded shadow-sm m-3">
+                    <div className="card-body">{chartArr[item]}</div>
+                  </div>
+                </GridItem>
+              ))}
+            </GridDropZone>
+          </GridContextProvider>
+        </div>
+        <div class="container mt-5 mb-5">
+          <div class="row">
+            <div className="col-lg-6 mb-5 col-sm-12">
+              <News />
+            </div>
+            <div className="col-lg-6 mb-5 col-sm-12">
+              <Faqs />
+            </div>
+          </div>
+        </div>
         {/* <div class="container mt-5 mb-5">
           <div class="row">
             <div className="col-lg-6 mb-5">
@@ -105,7 +113,7 @@ const Main = (props) => {
             </div>
           </div>
         </div> */}
-      </>
+      </div>
     );
 }
 

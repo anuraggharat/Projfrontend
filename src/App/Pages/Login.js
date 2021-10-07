@@ -20,16 +20,18 @@ function Login({loginUser , user, isLoggedIn}) {
   };
 
   const handleSubmit = async(e) => {
-    
+    setLoading(true)
     e.preventDefault();
     loginUser(values)
       .then(async (res) => {
         console.log(res)
         if (res) {
           toast.success("Login success");
+          
         } else {
           toast.error(res.error);
         }
+        setLoading(false)
       })
       .catch((err) => toast.warning(err));
 
@@ -73,7 +75,7 @@ function Login({loginUser , user, isLoggedIn}) {
             <label htmlFor="floatingPassword">Password</label>
           </div>
           <div>
-            <button className="btn bg-purple text-white btn-block w-100 btn-lg" type="submit" onClick={(e)=>handleSubmit(e)}>
+            <button className="btn bg-purple text-white btn-block w-100 btn-lg" type="submit" disabled={loading} onClick={(e)=>handleSubmit(e)}>
               SIGN IN
             </button>
           </div>
