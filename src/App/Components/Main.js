@@ -17,8 +17,8 @@ import {
 const Main = (props) => {
   //Detect change in profile selected
     useEffect(() => {
-      setItems(props.some);
-    }, [props.some])
+      setItems(props.profile);
+    }, [props.profile])
 
     const [items, setItems] = React.useState([0,1,2,3]);
 
@@ -50,13 +50,13 @@ const Main = (props) => {
       <GridDropZone
         id="items"
         boxesPerRow={val==true? 2:1}
-        rowHeight={300}
-        style={{ height: "400px" }}
+        rowHeight={400}
+        style={{ height: "400px",margin:"20px" }}
       >
         {items.map(item => (
-          <GridItem key={item} >
+          <GridItem key={item} className="my-2" >
             
-            <div className="card border-0 bg-white rounded shadow-sm m-2" >
+            <div className="card border-0 bg-white rounded shadow-sm m-3" >
                 <div className="card-body">
               {chartArr[item]}
               </div>
