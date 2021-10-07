@@ -17,6 +17,7 @@ import {
 } from "react-grid-dnd";
 import PieChart from './Graphs/PieChart';
 
+
 const Main = () => {
 
   const [revenue, setRevenue] = useState({})
@@ -49,6 +50,7 @@ const Main = () => {
     //   setItems(props.profile);
     // }, [props.profile])
 
+
     const [items, setItems] = React.useState([0,1,2,3]);
 
     const [val,setVal] = React.useState(true);
@@ -74,26 +76,37 @@ const Main = () => {
     }
 
     return (
-      <>
-      <GridContextProvider onChange={onChange}>
-      <GridDropZone
-        id="items"
-        boxesPerRow={val==true? 2:1}
-        rowHeight={300}
-        style={{ height: "400px" }}
-      >
-        {items.map(item => (
-          <GridItem key={item} >
-            
-            
-              {chartArr[item]}
-              
-            
-          </GridItem>
-        ))}
-      </GridDropZone>
-    </GridContextProvider>
-         <div class="container mt-2 mb-2">
+      <div className="h-100">
+        <div className="min-vh-100 content-container">
+          <GridContextProvider onChange={onChange}>
+            <GridDropZone
+              id="items"
+              boxesPerRow={val == true ? 2 : 1}
+              rowHeight={300}
+              style={{ height: "400px", margin: "20px" }}
+            >
+              {items.map((item) => (
+                <GridItem key={item} className="my-2">
+                  <div className="card border-0 bg-white rounded shadow-sm m-3">
+                    <div className="card-body">{chartArr[item]}</div>
+                  </div>
+                </GridItem>
+              ))}
+            </GridDropZone>
+          </GridContextProvider>
+        </div>
+        <div class="container mt-5 mb-5">
+          <div class="row">
+            <div className="col-lg-6 mb-5 col-sm-12">
+              <News />
+            </div>
+            <div className="col-lg-6 mb-5 col-sm-12">
+              <Faqs />
+            </div>
+          </div>
+        </div>
+        {/* <div class="container mt-5 mb-5">
+
           <div class="row">
         {/*    <div className="col-lg-6 mb-5">
               <div className="card border-0 bg-white rounded shadow-sm">
@@ -131,8 +144,9 @@ const Main = () => {
               
             </div>
           </div>
-        </div> 
-      </>
+        </div> */}
+      </div>
+
     );
 }
 

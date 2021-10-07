@@ -21,3 +21,16 @@ Main.js
 
 
 Dependencies:
+
+
+
+USER:
+
+
+username:
+password:
+id:
+revenue:{}
+profile:[1,4,5,6]
+
+post/update

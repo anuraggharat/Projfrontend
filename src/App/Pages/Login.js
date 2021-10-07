@@ -1,23 +1,49 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 
-export default function Login() {
-  
+import {loginUser} from '../Redux/Actions/auth'
+import { toast } from "react-toastify";
+import { Redirect } from "react-router";
+
+
+function Login({loginUser , user, isLoggedIn}) {
   const [values, setValues] = useState({
-    name: "",
+    email: "",
     password: "",
-    role: "",
   });
   const [loading, setLoading] = useState(false);
 
+    console.log(user);
+  
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
-    //handle submit
+  const handleSubmit = async(e) => {
+    setLoading(true)
+    e.preventDefault();
+    loginUser(values)
+      .then(async (res) => {
+        console.log(res)
+        if (res) {
+          toast.success("Login success");
+          
+        } else {
+          toast.error(res.error);
+        }
+        setLoading(false)
+      })
+      .catch((err) => toast.warning(err));
 
     console.log(values);
   };
+
+
+  if(user){
+    console.log(user)
+    
+    return <Redirect to="user/dashboard"  />
+  }
 
   return (
     <div className=" w-100 min-vh-100 d-flex flex-column justify-content-center bg-purple">
@@ -30,8 +56,8 @@ export default function Login() {
               className="form-control bg-grey border-0"
               id="floatingInput"
               placeholder="name@example.com"
-              name="name"
-              value={values.name}
+              name="email"
+              value={values.email}
               onChange={(e) => handleChange(e)}
             />
             <label htmlFor="floatingInput">User Name</label>
@@ -49,10 +75,19 @@ export default function Login() {
             <label htmlFor="floatingPassword">Password</label>
           </div>
           <div>
-            <button className="btn bg-purple text-white btn-block w-100 btn-lg">SIGN IN</button>
+            <button className="btn bg-purple text-white btn-block w-100 btn-lg" type="submit" disabled={loading} onClick={(e)=>handleSubmit(e)}>
+              SIGN IN
+            </button>
           </div>
         </form>
       </div>
     </div>
   );
 }
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.auth.isLoggedIn,
+  user: state.auth.user,
+});
+export default connect(mapStateToProps, { loginUser})(
+  Login
+);
