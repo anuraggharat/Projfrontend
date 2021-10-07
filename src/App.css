@@ -65,6 +65,9 @@ a{
   canvas{
     height: 100% !important;
   }
+  .content-container{
+    height: 170vh;
+  }
     .w-90{
       width: 90% !important;
 }    
