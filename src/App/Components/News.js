@@ -60,7 +60,7 @@ export default function News() {
                   <div className="row mt-4" key={index}>
                     <Link
                       className="mb-0"
-                      to={{ pathname: `/news/${item.title}`, item: item }}
+                      to={{ pathname: '/user/news', item: item }}
                     >
                       {item.title}
                     </Link>

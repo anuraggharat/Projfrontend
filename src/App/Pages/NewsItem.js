@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import moment from "moment";
 import { Link,Redirect } from 'react-router-dom';
+import { connect } from "react-redux";
 
 
-export default function NewsItem(props) {
+
+function NewsItem(props,{user,isLoggedIn}) {
     console.log(props.location.item)
     
     
@@ -57,3 +59,8 @@ if (!props.location.item) {
       </div>
     );
 }
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.auth.isLoggedIn,
+  user: state.auth.user,
+});
+export default connect(mapStateToProps)(NewsItem);

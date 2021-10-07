@@ -5,14 +5,15 @@ import Sidebar from '../Components/Sidebar'
 import {logoutUser} from '../Redux/Actions/auth'
 import { connect } from "react-redux";
 import { Redirect } from 'react-router'
+import { toast } from 'react-toastify'
 
 
 function Dashboard({ logoutUser, user, isLoggedIn }) {
+  
   const [sidebar, setSidebar] = useState(false);
-  console.log(user)
+
 
   //function to toggle sidebar
-
   const toggleSidebar = () => {
     if (sidebar) {
       setSidebar(!sidebar);
@@ -25,6 +26,16 @@ function Dashboard({ logoutUser, user, isLoggedIn }) {
     }
   };
 
+  const logout=()=>{
+    logoutUser().then((res)=>{
+      if (res.success) {
+        toast.success(res.message)
+      } else {
+        toast.error(res.message)
+      }
+    })
+  }
+
   //fetch call for revenue and profile
 
   //post call for updating profile
@@ -34,9 +45,12 @@ function Dashboard({ logoutUser, user, isLoggedIn }) {
     return <Redirect to="/" />
   }
 
+  
+
+  
   return (
     <>
-      <Sidebar sidebarToggler={toggleSidebar} logoutUser={logoutUser} />
+      <Sidebar sidebarToggler={toggleSidebar} logoutUser={logout} user={user} />
 
       <div id="main" className="bg-background min-vh-100 p-0">
         <Navbar sidebarToggler={toggleSidebar} />

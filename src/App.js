@@ -8,7 +8,6 @@ import Dashboard from './App/Pages/Dashboard';
 import Login from './App/Pages/Login';
 import PageNotFound from './App/Pages/PageNotFound';
 import NewsItem from './App/Pages/NewsItem';
-import { UserContext } from './App/Utils/UserContext';
 toast.configure();
 
 
@@ -20,8 +19,8 @@ function App() {
         <Router>
             <Switch>
               <Route path="/" exact component={Login} />
-              <Route path="/user/:slug" component={Dashboard} />
-              <Route path="/news/:slug" component={NewsItem} />
+              <Route path="/user/dashboard" component={Dashboard} />
+              <Route path="/user/news" component={NewsItem} />
 
               <Route path="*" component={PageNotFound} />
             </Switch>

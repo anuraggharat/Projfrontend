@@ -36,9 +36,16 @@ export const loginUser = (user) => async (dispatch) => {
 };
 
 //logout user
-export const logoutUser = () => (dispatch) => {
-  localStorage.removeItem("token");
-  dispatch({
-    type: LOGOUT,
-  });
+export const logoutUser = () => async(dispatch) => {
+  try {
+    localStorage.removeItem("token");
+    dispatch({
+      type: LOGOUT,
+    });
+    return {success:true,message:"Logout Successfull"}
+  } catch (error) {
+    console.log(error)
+    return { success: false, message: "Unable to logout" };
+
+  }
 };
