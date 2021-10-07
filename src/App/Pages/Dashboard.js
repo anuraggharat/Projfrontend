@@ -69,6 +69,7 @@ function Dashboard({ logoutUser, user, isLoggedIn }) {
         <Navbar sidebarToggler={toggleSidebar} />
         <div className="container min-vh-100">
           <Main
+            user={user}
             profile={profile}
             shownews={shownews}
             setShownews={setShownews}

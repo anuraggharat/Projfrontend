@@ -6,7 +6,7 @@ import BarChart from './Graphs/BarChart';
 import CombinedChart from './Graphs/CombinedChart';
 import News from './News';
 import Faqs from './Faqs';
-import { getRevenue } from '../Utils/getReq'
+import { getRevenue,putProfile } from '../Utils/getReq'
 
 import {
   GridContextProvider,
@@ -52,7 +52,7 @@ const Main = (props) => {
     // }, [props.profile])
 
 
-    const [items, setItems] = React.useState([0,1,2,3]);
+    const [items, setItems] = React.useState(props.user.profile);
 
     const [val,setVal] = React.useState(true);
     //Detect change in window size
@@ -76,10 +76,15 @@ const Main = (props) => {
       
     }
 
+    const profileUpdate = () =>{
+      putProfile(items,props.user.email);
+      //console.log(props.user.email);
+    }
+
     return (
       <div className="h-100">
         <div className="px-5 d-flex d-flex justify-content-end">
-          <button className="btn btn-success" disabled>
+          <button className="btn btn-success"  onClick={profileUpdate} disabled={props.user.profile==items}>
             Save <i class="bi bi-check-circle"></i>
           </button>
         </div>

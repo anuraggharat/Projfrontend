@@ -27,3 +27,14 @@ export const getRevenue = async () => {
     return { success: false, error: "Unable to fetch Revenue" };
   }
 };
+
+export const putProfile = async (arr,email) => {
+  try {
+    console.log(arr,email);
+    const res = await api.put("/"+email+"/profile", arr);
+    //const res = await axios.put('https://httpbin.org/put',arr)
+    console.log(res.data);  } 
+    catch (error) {
+    return { success: false, error: "Unable to fetch Revenue" };
+  }
+};
