@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Navbar(props) {
     return (
-      <nav className="navbar d-flex justify-content-between navbar-expand-lg navbar-light bg-light m-0 px-3 shadow-sm">
+      <nav className="navbar fixed-top d-flex justify-content-between navbar-expand-lg navbar-light bg-light m-0 px-3 shadow-sm">
         <button
           onClick={() => props.sidebarToggler()}
           className="btn px-3 bg-purple text-white"
