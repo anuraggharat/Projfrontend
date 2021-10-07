@@ -108,7 +108,7 @@ const Main = () => {
         {/* <div class="container mt-5 mb-5">
 
           <div class="row">
-        {/*    <div className="col-lg-6 mb-5">
+            <div className="col-lg-6 mb-5">
               <div className="card border-0 bg-white rounded shadow-sm">
                 <div className="card-body">
                   <LineChart />
@@ -135,19 +135,16 @@ const Main = () => {
                   <CombinedChart />
                 </div>
               </div>
-            </div>*/}
+            </div>
+            */}
+
             <div className="col-lg-6 mb-5">
               <News />
             </div>
             <div className="col-lg-6 mb-5">
-                <Faqs/>
-              
+                <Faqs/>              
             </div>
           </div>
-        </div> */}
-      </div>
-
     );
 }
-
 export default Main

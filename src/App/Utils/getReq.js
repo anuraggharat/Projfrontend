@@ -17,3 +17,13 @@ export const getFaqs = async () => {
     return { success: false, error: "Unable to fetch Faq's" };
   }
 };
+
+
+export const getRevenue = async () => {
+  try {
+    const res = await api.get("/revenue");
+    return {data:res.data,success:true};
+  } catch (error) {
+    return { success: false, error: "Unable to fetch Revenue" };
+  }
+};
