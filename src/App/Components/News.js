@@ -2,6 +2,8 @@ import React, { useState ,useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getNews } from '../Utils/getReq';
+import moment from "moment";
+
 
 export default function News() {
 
@@ -46,7 +48,7 @@ export default function News() {
                   role="switch"
                   id="flexSwitchCheckDefault"
                   checked={shownews}
-                  onChange={()=>setShownews(!shownews)}
+                  onChange={() => setShownews(!shownews)}
                 />
               </div>
             </div>
@@ -62,7 +64,9 @@ export default function News() {
                     >
                       {item.title}
                     </Link>
-                    <p className="flex-end text-muted my-0">Wed 10 Sept</p>
+                    <p className="flex-end text-muted my-0">
+                      {moment(item.date).fromNow()}
+                    </p>
                   </div>
                 ))}
             </div>

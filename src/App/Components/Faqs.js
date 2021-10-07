@@ -13,7 +13,7 @@ export default function Faqs() {
   const getAllFaqs = () => {
     getFaqs().then((res) => {
       if (res.success) {
-        toast.success("FAQ's Found");
+
         setData(res.data);
       } else {
         toast.error("FAQ's Missing");
