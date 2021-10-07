@@ -6,6 +6,8 @@ import BarChart from './Graphs/BarChart';
 import CombinedChart from './Graphs/CombinedChart';
 import News from './News';
 import Faqs from './Faqs';
+import { getRevenue } from '../Utils/getReq'
+
 import {
   GridContextProvider,
   GridDropZone,
@@ -13,12 +15,41 @@ import {
   swap,
   move
 } from "react-grid-dnd";
+import PieChart from './Graphs/PieChart';
 
-const Main = (props) => {
-  //Detect change in profile selected
-    useEffect(() => {
-      setItems(props.profile);
-    }, [props.profile])
+
+const Main = () => {
+
+  const [revenue, setRevenue] = useState({})
+
+  const processRevenue = () => {
+    getRevenue().then((res) => {
+      if (res.success) {    
+        const revenueList = res.data
+        const rv = {
+          years: revenueList.flatMap(rv => [rv.year]),
+          users: revenueList.flatMap(rv => [rv.users_this_year]),
+          net: revenueList.flatMap(rv => [rv.total_revenue]),
+          quarters: revenueList.flatMap(rv => [rv.qoq_revenue]), 
+                   
+        }
+        setRevenue(rv)
+      } else {
+        //toast.error("Couldn't load Revenue");
+      }
+    });
+  };
+
+
+  useEffect(() => {
+    processRevenue();
+  }, [])
+
+  
+    // useEffect(() => {
+    //   setItems(props.profile);
+    // }, [props.profile])
+
 
     const [items, setItems] = React.useState([0,1,2,3]);
 
@@ -36,7 +67,7 @@ const Main = (props) => {
   }
       window.addEventListener('resize', handleResize)
     })
-    const chartArr = [<LineChart/>,<BarChart/>,<CombinedChart/>,<LineChart/>];
+    const chartArr = [<LineChart revenue={revenue}/>,<BarChart revenue={revenue}/>,<CombinedChart revenue={revenue}/>,<PieChart revenue={revenue}/>];
     function onChange(sourceId, sourceIndex, targetIndex, targetId) {
     const nextState = swap(items, sourceIndex, targetIndex);
     setItems(nextState);
@@ -80,6 +111,7 @@ const Main = (props) => {
           </div>
         </div>
         {/* <div class="container mt-5 mb-5">
+
           <div class="row">
             <div className="col-lg-6 mb-5">
               <div className="card border-0 bg-white rounded shadow-sm">
@@ -109,17 +141,15 @@ const Main = (props) => {
                 </div>
               </div>
             </div>
+            */}
+
             <div className="col-lg-6 mb-5">
               <News />
             </div>
             <div className="col-lg-6 mb-5">
-                <Faqs/>
-              
+                <Faqs/>              
             </div>
           </div>
-        </div> */}
-      </div>
     );
 }
-
 export default Main
