@@ -18,7 +18,7 @@ import {
 import PieChart from './Graphs/PieChart';
 
 
-const Main = () => {
+const Main = (props) => {
 
   const [revenue, setRevenue] = useState({})
 
@@ -82,7 +82,7 @@ const Main = () => {
             Save <i class="bi bi-check-circle"></i>
           </button>
         </div>
-        <div className="min-vh-100 content-container">
+        <div className="min-vh-100 content-container mb-5 pb-5">
           <GridContextProvider onChange={onChange}>
             <GridDropZone
               id="items"
@@ -92,16 +92,16 @@ const Main = () => {
             >
               {items.map((item) => (
                 <GridItem key={item} className="my-2">
-                  <div className="card border-0 bg-white rounded shadow-sm m-3">
-                    <div className="card-body">{chartArr[item]}</div>
+                  <div className="my-3 mb-3" >
+                    <div >{chartArr[item]}</div>
                   </div>
                 </GridItem>
               ))}
             </GridDropZone>
           </GridContextProvider>
         </div>
-        <div class="container mt-5 mb-5">
-          <div class="row">
+        <div className="container mt-5 mb-5">
+          <div className="row">
             <div className="col-lg-6 mb-5 col-sm-12">
               {props.shownews && <News />}
             </div>
@@ -110,45 +110,7 @@ const Main = () => {
             </div>
           </div>
         </div>
-        {/* <div class="container mt-5 mb-5">
 
-          <div class="row">
-            <div className="col-lg-6 mb-5">
-              <div className="card border-0 bg-white rounded shadow-sm">
-                <div className="card-body">
-                  <LineChart />
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-5">
-              <div className="card border-0 bg-white  rounded shadow-sm">
-                <div className="card-body">
-                  <LineChart />
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-5">
-              <div className="card border-0 bg-white  rounded shadow-sm">
-                <div className="card-body">
-                  <BarChart />
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 mb-5">
-              <div className="card border-0 bg-white  rounded shadow-sm">
-                <div className="card-body">
-                  <CombinedChart />
-                </div>
-              </div>
-            </div>
-            */}
-
-            <div className="col-lg-6 mb-5">
-              <News />
-            </div>
-            <div className="col-lg-6 mb-5">
-                <Faqs/>              
-            </div>
           </div>
     );
 }
