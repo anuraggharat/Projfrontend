@@ -15,21 +15,36 @@ export default function Dashboard() {
     const toggleSidebar=()=>{
         if (sidebar){
             setSidebar(!sidebar)
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
+            // document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("mySidenav").style.marginLeft = "-250px";
+
         }
         else {
             setSidebar(!sidebar);
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
+//            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("mySidenav").style.marginLeft = "0px";
+
+
         }
     }
+    
+
+    //fetch call for revenue and profile
+
+
+
+
+    //post call for updating profile
+
+
     
 
 
     return (
       <>
-        <Sidebar onChange/>
+
+        
+        <Sidebar sidebarToggler={toggleSidebar} />
 
         <div id="main" className="bg-background min-vh-100 p-0">
           <Navbar sidebarToggler={toggleSidebar} />
@@ -37,7 +52,7 @@ export default function Dashboard() {
             <Main profile = {profile}/>
           </div>
           <footer className="w-100 bg-dark text-white text-center py-2">
-              &copy;2021 Team 7
+            &copy;2021 Team 7
           </footer>
         </div>
       </>
