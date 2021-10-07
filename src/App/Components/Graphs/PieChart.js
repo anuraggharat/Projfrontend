@@ -44,7 +44,7 @@ const PieChart = (props) => {
         <div className="card border-0 bg-white rounded shadow-sm m-2 " style={{ height: "320px" }} >
                 <div className="card-body">
         <div >
-            <Pie options={{ maintainAspectRatio: false }} height={"200%"}data={data} />
+            <Pie options={{ maintainAspectRatio: false }} height={"200%"} data={data} />
         </div>
         <div >
         <select className="form-select mt-2" value={quar} aria-label="Default select example" onChange={(e)=>showPie(e)}>
