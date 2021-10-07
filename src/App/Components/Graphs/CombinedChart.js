@@ -31,7 +31,7 @@ const CombinedChart = (props) => {
     return (
       <div className="card border-0 bg-white rounded shadow-sm m-2"style={{ height: "320px" }} >
                 <div className="card-body">
-        <div className="col">
+        <div className="">
             <Bar data={data} />
         </div>
         </div>

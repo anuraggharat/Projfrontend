@@ -34,7 +34,9 @@ a{
 
 
 }
-
+.w-90{
+  width: 50%;
+}
 /* The navigation menu links */
 .sidenav a {
   padding: 8px 8px 8px 32px;
@@ -53,7 +55,17 @@ a{
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
+@media screen and (max-height: 650px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+
+}
+
+@media only screen and (max-width:500px)  {
+  canvas{
+    height: 100% !important;
+  }
+    .w-90{
+      width: 90% !important;
+}    
 }

@@ -40,6 +40,7 @@ const Main = (props) => {
     });
   };
 
+  console.log(revenue)
 
   useEffect(() => {
     processRevenue();
@@ -91,9 +92,9 @@ const Main = (props) => {
               style={{ height: "400px", margin: "20px" }}
             >
               {items.map((item) => (
-                <GridItem key={item} className="my-2">
-                  <div className="my-3 mb-3" >
-                    <div >{chartArr[item]}</div>
+                <GridItem key={item} className="mb-5">
+                  <div className="" >
+                    <div className="bg-background py-2" >{chartArr[item]}</div>
                   </div>
                 </GridItem>
               ))}
