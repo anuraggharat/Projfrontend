@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import './App.css';
 import { ToastContainer, toast } from "react-toastify";
 import { Provider } from "react-redux";
 import store from "./App/Redux/store";

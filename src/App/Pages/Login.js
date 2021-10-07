@@ -47,7 +47,7 @@ function Login({loginUser , user, isLoggedIn}) {
 
   return (
     <div className=" w-100 min-vh-100 d-flex flex-column justify-content-center bg-purple">
-      <div className="text-center w-50 mx-auto bg-white p-5 rounded shadow-lg">
+      <div className="text-center w-90 mx-auto bg-white p-5 rounded shadow-lg">
         <h4 className="mb-5">SIGN IN TO YOUR ACCOUNT</h4>
         <form>
           <div className="form-floating mb-3">

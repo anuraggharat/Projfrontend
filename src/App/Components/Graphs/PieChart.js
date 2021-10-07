@@ -13,7 +13,7 @@ const PieChart = (props) => {
 
 
   const [quar, setQuar] = useState(0);
-  const [dataset, setDataSet] = useState(props.revenue.quarters[0]);
+  const [dataset, setDataSet] = useState([1,2,3,4]);
 
 
   const data = {
@@ -41,7 +41,7 @@ const PieChart = (props) => {
   const arr = props.revenue.years;
   
     return (
-        <div className="card border-0 bg-white rounded shadow-sm m-2" style={{ height: "320px" }} >
+        <div className="card border-0 bg-white rounded shadow-sm m-2 " style={{ height: "320px" }} >
                 <div className="card-body">
         <div >
             <Pie options={{ maintainAspectRatio: false }} height={"200%"}data={data} />
