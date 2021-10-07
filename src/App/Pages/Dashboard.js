@@ -8,7 +8,7 @@ export default function Dashboard() {
 
     const [sidebar, setSidebar] = useState(false)
 
-
+    const profile = [0,1,2,3];
 
     //function to toggle sidebar
 
@@ -42,12 +42,14 @@ export default function Dashboard() {
 
     return (
       <>
+
+        
         <Sidebar sidebarToggler={toggleSidebar} />
 
         <div id="main" className="bg-background min-vh-100 p-0">
           <Navbar sidebarToggler={toggleSidebar} />
           <div className="container min-vh-100">
-            <Main />
+            <Main profile = {profile}/>
           </div>
           <footer className="w-100 bg-dark text-white text-center py-2">
             &copy;2021 Team 7
