@@ -29,6 +29,16 @@ export default function Dashboard() {
     }
     
 
+    //fetch call for revenue and profile
+
+
+
+
+    //post call for updating profile
+
+
+    
+
 
     return (
       <>
