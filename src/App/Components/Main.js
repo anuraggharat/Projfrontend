@@ -135,7 +135,7 @@ const Main = () => {
                   <CombinedChart />
                 </div>
               </div>
-            </div>*/}
+            </div>
             <div className="col-lg-6 mb-5">
               <News />
             </div>
