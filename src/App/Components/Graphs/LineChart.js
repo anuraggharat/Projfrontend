@@ -18,7 +18,7 @@ const LineChart = (props) => {
     return (
       <div className="card border-0 bg-white rounded shadow-sm m-2"style={{ height: "320px" }} >
                 <div className="card-body">
-        <div className="col-md-12">
+        <div className="">
             <Line data={data} />        
         </div>
         </div>

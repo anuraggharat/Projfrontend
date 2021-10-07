@@ -1,15 +1,27 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Pie } from 'react-chartjs-2';
 
 
 const PieChart = (props) => {
-  //console.log(props.revenue.years);
+  console.log(props.revenue.quarters);
+
+
+  const showPie=(e)=>{
+    setQuar(e.target.value);
+    setDataSet(props.revenue.quarters[quar])
+  }
+
+
+  const [quar, setQuar] = useState(0);
+  const [dataset, setDataSet] = useState(props.revenue.quarters[0]);
+
+
   const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green'],
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
     datasets: [
       {
-        label: '# of Votes',
-        data: [1, 1, 1, 1],
+        label: 'Revenue Generated',
+        data: dataset,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -35,12 +47,12 @@ const PieChart = (props) => {
             <Pie options={{ maintainAspectRatio: false }} height={"200%"}data={data} />
         </div>
         <div >
-        <select className="form-select mt-2" aria-label="Default select example">
-            {/* { 
+        <select className="form-select mt-2" value={quar} aria-label="Default select example" onChange={(e)=>showPie(e)}>
+            {arr &&  
               arr.map((year,index)=>{
-                return <option key={index} value="year">{year}</option>
+                return <option key={index} value={index}>{year}</option>
               })
-            }  */}
+            } 
           </select>
         </div>
         </div>
