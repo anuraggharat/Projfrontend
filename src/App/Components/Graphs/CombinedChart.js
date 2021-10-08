@@ -36,7 +36,7 @@ const CombinedChart = (props) => {
         <div className="card-body pb-3">
           <div className="">
             <Bar data={data} />
-            <p className="text-center">No of new users added</p>
+            <p className="text-center">Revenue per year</p>
           </div>
         </div>
       </div>
