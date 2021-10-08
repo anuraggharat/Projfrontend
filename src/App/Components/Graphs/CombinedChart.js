@@ -29,14 +29,18 @@ const CombinedChart = (props) => {
     ],
   };
     return (
-      <div className="card border-0 bg-white rounded shadow-sm m-2"style={{ height: "320px" }} >
-                <div className="card-body">
-        <div className="">
+      <div
+        className="card border-0 bg-white rounded shadow-sm m-2"
+        style={{ height: "320px" }}
+      >
+        <div className="card-body pb-3">
+          <div className="">
             <Bar data={data} />
+            <p className="text-center">No of new users added</p>
+          </div>
         </div>
-        </div>
-        </div>
-    )
+      </div>
+    );
 }
 
 export default CombinedChart

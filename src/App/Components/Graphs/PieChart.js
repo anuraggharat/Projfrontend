@@ -41,23 +41,43 @@ const PieChart = (props) => {
   const arr = props.revenue.years;
   
     return (
-        <div className="card border-0 bg-white rounded shadow-sm m-2 " style={{ height: "320px" }} >
-                <div className="card-body">
-        <div >
-            <Pie options={{ maintainAspectRatio: false }} height={"200%"} data={data} />
+      <div
+        className="card border-0 bg-white rounded shadow-sm m-2 "
+        style={{ height: "320px" }}
+      >
+        <div className="card-body">
+          <div>
+            <Pie
+              options={{ maintainAspectRatio: false }}
+              height={"200%"}
+              data={data}
+            />
+          </div>
+          <div className="row">
+            <div className="col justify-content-center align-items-center">
+              <p className="mt-3"> Quaterly revenue in Year </p>
+            </div>
+            <div className="col">
+              <select
+                className="form-select mt-2"
+                value={quar}
+                aria-label="Default select example"
+                onChange={(e) => showPie(e)}
+              >
+                {arr &&
+                  arr.map((year, index) => {
+                    return (
+                      <option key={index} value={index}>
+                        {year}
+                      </option>
+                    );
+                  })}
+              </select>
+            </div>
+          </div>
         </div>
-        <div >
-        <select className="form-select mt-2" value={quar} aria-label="Default select example" onChange={(e)=>showPie(e)}>
-            {arr &&  
-              arr.map((year,index)=>{
-                return <option key={index} value={index}>{year}</option>
-              })
-            } 
-          </select>
-        </div>
-        </div>
-        </div>
-    )
+      </div>
+    );
 }
 
 export default PieChart

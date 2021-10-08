@@ -20,6 +20,10 @@ function Login({loginUser , user, isLoggedIn}) {
   };
 
   const handleSubmit = async(e) => {
+    setWrong(false)
+    if (values.email =='' || values.password == '') {
+      return toast.error("No empty values")
+    }
     setLoading(true)
     e.preventDefault();
     loginUser(values)

@@ -19,9 +19,8 @@ const BarChart = (props) => {
     return ( 
       <div className="card border-0 bg-white rounded shadow-sm m-2"style={{ height: "320px" }} >
                 <div className="card-body">
-    <div className="">
-    <Bar data={data} />
-    </div>
+                  <Bar data={data} />
+                <p className="text-center mt-2">No of new users added</p>
     </div>
     </div>
     )
