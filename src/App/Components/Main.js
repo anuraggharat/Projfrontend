@@ -7,6 +7,7 @@ import CombinedChart from './Graphs/CombinedChart';
 import News from './News';
 import Faqs from './Faqs';
 import { getRevenue,putProfile } from '../Utils/getReq'
+import { toast } from "react-toastify";
 
 import {
   GridContextProvider,
@@ -78,6 +79,7 @@ const Main = (props) => {
 
     const profileUpdate = () =>{
       putProfile(items,props.user.email);
+      toast.success("Profile Updated!");
       //console.log(props.user.email);
     }
 

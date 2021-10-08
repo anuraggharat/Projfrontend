@@ -12,7 +12,7 @@ function Login({loginUser , user, isLoggedIn}) {
     password: "",
   });
   const [loading, setLoading] = useState(false);
-
+  const [wrong, setWrong] = useState(false);
     console.log(user);
   
   const handleChange = (e) => {
@@ -29,6 +29,9 @@ function Login({loginUser , user, isLoggedIn}) {
           toast.success("Login success");
           
         } else {
+          
+          setLoading(false);
+          setWrong(true);
           toast.error(res.error);
         }
         setLoading(false)
@@ -76,8 +79,11 @@ function Login({loginUser , user, isLoggedIn}) {
           </div>
           <div>
             <button className="btn bg-purple text-white btn-block w-100 btn-lg" type="submit" disabled={loading} onClick={(e)=>handleSubmit(e)}>
-              SIGN IN
+              {loading?"Signing in....":"SIGN IN"}
             </button>
+          </div>
+          <div>
+          { wrong && <h6 className="mt-2" style={{ color: 'red' }}>Wrong username or password!</h6> } 
           </div>
         </form>
       </div>
