@@ -10,7 +10,7 @@ const CombinedChart = (props) => {
     datasets: [
       {
         type: "line",
-        label: "Dataset 1",
+        label: "Revenue",
         data: props.revenue.net,//[33, 53, 85, 41, 44, 65],
         fill: false,
         backgroundColor: "red",
@@ -19,7 +19,7 @@ const CombinedChart = (props) => {
       },
       {
         type: "bar",
-        label: "Dataset 2",
+        label: "Revenue",
         data: props.revenue.net,//[33, 53, 85, 41, 44, 65],
   
         backgroundColor: "#a29bfe",
